@@ -1,0 +1,20 @@
+body{
+    background-color: black;
+    display: grid;
+    justify-content: center;
+}
+
+.mainContainer{
+    display: flex;
+    justify-content: space-between;
+    width: 80vw;
+}
+
+h1, h2{
+    color: white;
+    text-align: center;
+}
+
+img{
+    border-radius: 10px;
+}
