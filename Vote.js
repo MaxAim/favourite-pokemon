@@ -4,7 +4,7 @@ var pokemon2 = 0
 
 const CreateList = () => {
     i = 0
-    while (i < 898){
+    while (i < 151){
         i++
         pokemonList.push(i)
     }
