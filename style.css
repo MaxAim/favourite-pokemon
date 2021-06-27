@@ -33,3 +33,22 @@ button{
 button:hover{
     background-color: rgb(0, 0, 150);
 }
+
+@media (pointer:none), (pointer:coarse){
+    .mainContainer{
+      display: block;
+    }
+    img{
+        width: 100%;
+    }
+    body{
+        justify-items: center;
+    }
+    button{
+        width: 28vw;
+        margin: 7%;
+    }
+    .desktop{
+        display: none;
+    }
+}

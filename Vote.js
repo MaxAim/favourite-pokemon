@@ -11,8 +11,9 @@ const CreateList = (i, gen) => {
     Load()
     $("button").hide();
     $("h1").text("Pick your favourite");
-    $(".subContainer").css("min-width", "37vw") 
+    $(".subContainer").css("min-width", "37vw");
     $(".subContainer").css("min-height", "43vw");
+    $(".desktop").css("display", "block");
 }
 
 
@@ -67,7 +68,7 @@ const Load = () => {
                 $("h2:eq(0)").text(response.name);
                 $("img:eq(0)").attr("src", `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemonList[0]}.png`);
                 $(".subContainer:eq(1)").hide();
-                $(".mainContainer").css("width", "0");
+                $(".mainContainer").css("width", "100%");
             }
         });
     }
