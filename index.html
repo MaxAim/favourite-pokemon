@@ -11,7 +11,17 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Pick your favourite</h1>
+    <h1>Pick your gen</h1>
+    <div class="mainContainer">
+        <button onclick="CreateList(1,151)">Gen I</button>
+        <button onclick="CreateList(152, 251)">Gen II</button>
+        <button onclick="CreateList(253,386)">Gen III</button>
+        <button onclick="CreateList(387, 483)">Gen IV</button>
+        <button onclick="CreateList(494, 649)">Gen V</button>
+        <button onclick="CreateList(650, 721)">Gen VI</button>
+        <button onclick="CreateList(722, 809)">Gen VII</button>
+        <button onclick="CreateList(810, 898)">Gen VIII</button>
+    </div>
     <div class="mainContainer">
         <div class="subContainer">
             <h2>Pokemon 1</h2>
@@ -21,9 +31,6 @@
             <h2>Pokemon 2</h2>
             <a onclick="Vote(pokemon1)"><img src="./whosthat.png" alt=""></a>
         </div>
-    </div>
-    <div>
-        Accept
     </div>
 </body>
 </html>

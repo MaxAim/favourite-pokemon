@@ -2,12 +2,17 @@ var pokemonList = []
 var pokemon1 = 0
 var pokemon2 = 0
 
-const CreateList = () => {
-    i = 0
-    while (i < 151){
+
+const CreateList = (i, gen) => {
+    while (i < gen){
         i++
         pokemonList.push(i)
     }
+    Load()
+    $("button").hide();
+    $("h1").text("Pick your favourite");
+    $(".subContainer").css("min-width", "37vw") 
+    $(".subContainer").css("min-height", "43vw");
 }
 
 
@@ -75,6 +80,5 @@ const Vote = (pokemonNum) => {
 
 
 $(document).ready(function(){
-    CreateList()
     Load()
 });
