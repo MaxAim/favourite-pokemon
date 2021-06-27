@@ -10,11 +10,16 @@ body{
     width: 80vw;
 }
 
+.subContainer{
+    border: 2px white solid;
+    border-radius: 10px;
+    min-width: 37vw;
+    min-height: 43vw;
+}
+
 h1, h2{
     color: white;
     text-align: center;
 }
 
-img{
-    border-radius: 10px;
-}
+
