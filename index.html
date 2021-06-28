@@ -11,25 +11,48 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Pick your gen</h1>
-    <div class="mainContainer">
-        <button onclick="CreateList(0,150)">Gen I</button>
+    <h1>Pick by gen or by type?</h1>
+    <div class="mainContainer genContainer">
+        <button onclick="CreateList(0, 150, '')">Gen I</button>
         <button onclick="CreateList(151, 249)">Gen II</button>
-        <button onclick="CreateList(252,385)">Gen III</button>
+        <button onclick="CreateList(252, 385)">Gen III</button>
         <button onclick="CreateList(386, 482)">Gen IV</button>
         <button onclick="CreateList(493, 648)">Gen V</button>
         <button onclick="CreateList(647, 720)">Gen VI</button>
         <button onclick="CreateList(721, 808)">Gen VII</button>
         <button onclick="CreateList(809, 897)">Gen VIII</button>
     </div>
+    <div class="mainContainer typeContainer">
+        <button onclick="CreateList(0, 0, 'normal')">Normal</button>
+        <button onclick="CreateList(0, 0, 'fighting')">Fighting</button>
+        <button onclick="CreateList(0, 0, 'flying')">Flying</button>
+        <button onclick="CreateList(0, 0, 'poison')">Poison</button>
+        <button onclick="CreateList(0, 0, 'ground')">Ground</button>
+        <button onclick="CreateList(0, 0, 'rock')">Rock</button>
+        <button onclick="CreateList(0, 0, 'bug')">Bug</button>
+        <button onclick="CreateList(0, 0, 'ghost')">Ghost</button>
+        <button onclick="CreateList(0, 0, 'steel')">Steel</button>
+        <button onclick="CreateList(0, 0, 'fire')">Fire</button>
+        <button onclick="CreateList(0, 0, 'water')">Water</button>
+        <button onclick="CreateList(0, 0, 'gras')">Grass</button>
+    </div>
+    <div class="mainContainer typeContainer">
+        <button onclick="CreateList(0, 0, 'electric')">Electric</button>
+        <button onclick="CreateList(0, 0, 'psychic')">Psychic</button>
+        <button onclick="CreateList(0, 0, 'ice')">Ice</button>
+        <button onclick="CreateList(0, 0, 'dragon')">Dragon</button>
+        <button onclick="CreateList(0, 0, 'dark')">Dark</button>
+        <button onclick="CreateList(0, 0, 'fairy')">Fairy</button>
+</div>
+    
     <div class="mainContainer">
         <div class="subContainer desktop">
-            <h2>Pokemon 1</h2>
-            <a onclick="Vote(pokemon2)"><img src="./whosthat.png" alt=""></a>
+            <h2>By Gen</h2>
+            <a onclick="byGen()"><img src="./whosthat.png" alt=""></a>
         </div>
         <div class="subContainer desktop">
-            <h2>Pokemon 2</h2>
-            <a onclick="Vote(pokemon1)"><img src="./whosthat.png" alt=""></a>
+            <h2>By Type</h2>
+            <a onclick="byType()"><img src="./whosthat.png" alt=""></a>
         </div>
     </div>
 </body>

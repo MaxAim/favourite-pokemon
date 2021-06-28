@@ -34,6 +34,14 @@ button:hover{
     background-color: rgb(0, 0, 150);
 }
 
+.genContainer, .typeContainer{
+    display: none;
+}
+
+.byButton{
+    width: 5%;
+}
+
 @media (pointer:none), (pointer:coarse){
     .mainContainer{
       display: block;
