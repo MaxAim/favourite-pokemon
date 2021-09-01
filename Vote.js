@@ -3,8 +3,8 @@ var tempList = []
 var type = ""
 
 const CreateList = (i, gen, newType) => {
-    $("a:eq(0)").attr("onclick", "Vote(pokemon1)")
-    $("a:eq(1)").attr("onclick", "Vote(pokemon2)")
+    $("a:eq(1)").attr("onclick", "Vote(pokemon1)")
+    $("a:eq(0)").attr("onclick", "Vote(pokemon2)")
     type = newType
     if(type === ""){
         while (i < gen){
@@ -15,7 +15,10 @@ const CreateList = (i, gen, newType) => {
                 data: "data",
                 dataType: "JSON",
                 success: function (response) {
-                    pokemonList.push(response.name)
+                    if(response.sprites.other["official-artwork"].front_default !== null){
+                        pokemonList.push(response.name)
+                    }
+
                 }
             })
         }
@@ -42,7 +45,7 @@ const CreateList = (i, gen, newType) => {
         $("button").hide();
         $("h1").text("Pick your favourite");
         $(".subContainer").css("min-width", "37vw");
-        $(".subContainer").css("min-height", "43vw");
+        $(".subContainer").css("min-height", "37vw");
         $(".desktop").css("display", "block");
     }, 1000);
 }
@@ -57,7 +60,12 @@ const AjaxPk = (pk, pkm) => {
             $(`h2:eq(${pkm})`).hide();
             $(`img:eq(${pkm})`).hide()
             $(`h2:eq(${pkm})`).text(response.name);
-            $(`img:eq(${pkm})`).attr("src", `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${response.id}.png`);
+            if(response.sprites.other["official-artwork"].front_default !== null){
+                $(`img:eq(${pkm})`).attr("src", `${response.sprites.other["official-artwork"].front_default}`);
+            }
+            else{
+                Vote(pk);
+            }
             $(`h2:eq(${pkm})`).show();
             setTimeout(() => {
                 $(`img:eq(${pkm})`).fadeIn(500);
@@ -76,11 +84,11 @@ const Load = () => {
             AjaxPk(pokemon2 ,1)
         }
         else{
-            Load(type)
+            Load()
         }
     }
     else{
-        AjaxPk(pokemonList[0]);
+        AjaxPk(0, 0);
         $("h1").text("Your favourite pokemon is:");
         $(".subContainer:eq(1)").hide();
         $(".mainContainer").css("width", "100%");
@@ -96,6 +104,7 @@ const byGen = () => {
     $(".genContainer").css("display", "inline")
     $(".typeContainer").css("display", "none")
 }
+
 const byType = () => {
     $(".typeContainer").css("display", "inline")
     $(".genContainer").css("display", "none")
