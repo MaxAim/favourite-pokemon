@@ -6,28 +6,44 @@ body{
 
 .mainContainer{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     width: 80vw;
 }
 
 .subContainer{
-    border: 2px white solid;
-    border-radius: 10px;
+    border: 0.2vw white solid;
+    border-radius: 1vw;
+    width: 30vw;
+    height: 30vw;
 }
 
-h1, h2{
+h1, h2, h3{
     color: white;
     text-align: center;
+}
+
+h1{
+    font-size: 2vw;
+}
+
+h2, h3{
+    font-size: 1.5vw;
+}
+
+img{
+    width: 30vw;
+    height: auto;
 }
 
 button{
     width: 10vw;
     background-color: blue;
     border-color: blue;
-    border-radius: 10px;
+    border-radius: 1vw;
     margin: 1vw;
     color: white;
     font-weight: bold;
+    font-size: 1vw;
 }
 
 button:hover{
@@ -42,21 +58,47 @@ button:hover{
     width: 5%;
 }
 
+a{
+    justify-content: center;
+    display: flex;
+    align-content: center;
+}
+
+.mobile{
+    display: none;
+}
+
 @media (pointer:none), (pointer:coarse){
     .mainContainer{
       display: block;
-    }
-    img{
-        width: 100%;
+      width: auto;
     }
     body{
         justify-items: center;
     }
     button{
         width: 28vw;
-        margin: 7%;
+        font-size: 5vw;
     }
     .desktop{
         display: none;
+    }
+    .subContainer{
+        width: 80vw;
+        height: 80vw;
+        margin-top: 5vw;
+    }
+    img{
+        width: 60vw;
+        height: auto;
+    }
+    h1{
+        font-size: 5vw;
+    }
+    h2{
+        font-size: 4vw;
+    }
+    .mobile{
+        display: block;
     }
 }

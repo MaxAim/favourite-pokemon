@@ -5,6 +5,7 @@ var type = ""
 const CreateList = (i, gen, newType) => {
     $("a:eq(1)").attr("onclick", "Vote(pokemon1)")
     $("a:eq(0)").attr("onclick", "Vote(pokemon2)")
+    $("h3").hide();
     type = newType
     if(type === ""){
         while (i < gen){
@@ -89,7 +90,7 @@ const Load = () => {
     }
     else{
         AjaxPk(0, 0);
-        $("h1").text("Your favourite pokemon is:");
+        $("h1").text(`Your favourite ${type} pokemon is:`);
         $(".subContainer:eq(1)").hide();
         $(".mainContainer").css("width", "100%");
     };
