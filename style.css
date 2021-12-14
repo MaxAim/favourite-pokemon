@@ -17,7 +17,7 @@ body{
     height: 30vw;
 }
 
-h1, h2, h3{
+h1, h2{
     color: white;
     text-align: center;
 }
@@ -95,7 +95,7 @@ a{
     h1{
         font-size: 5vw;
     }
-    h2{
+    h2, h3{
         font-size: 4vw;
     }
     .mobile{
