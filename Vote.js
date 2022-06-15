@@ -1,50 +1,31 @@
 var pokemonList = []
 var tempList = []
-var type = ""
+var title = ''
 
-const CreateList = (i, gen, newType) => {
+const CreateList = (kind, val) => {
+    title = val
     $("a:eq(1)").attr("onclick", "Vote(pokemon1)")
     $("a:eq(0)").attr("onclick", "Vote(pokemon2)")
     $("h3").hide();
-    type = newType
-    if(type === ""){
-        while (i < gen){
-            i++
-            $.ajax({
-                type: "get",
-                url: `https://pokeapi.co/api/v2/pokemon/${i}`,
-                data: "data",
-                dataType: "JSON",
-                success: function (response) {
-                    if(response.sprites.other["official-artwork"].front_default !== null){
-                        pokemonList.push(response.name)
-                    }
-
-                }
-            })
-        }
-    }
-    else{
         $.ajax({
             type: "get",
-            url: `https://pokeapi.co/api/v2/type/${type}`,
+            url: `https://pokeapi.co/api/v2/${kind}/${val}`,
             data: "data",
             dataType: "JSON",
             success: function (response) {
-                object = response.pokemon
+                object = response.pokemon_species || response.pokemon
                 for (const key in object) {
                     if (Object.hasOwnProperty.call(object, key)) {
                         const element = object[key];
-                        pokemonList.push(element.pokemon.name)
+                        pokemonList.push(element.name || element.pokemon.name)
                     }
                 }
             }
         });
-    }
     setTimeout(() => {
         Load()
         $("button").hide();
-        $("h1").text("Pick your favourite");
+        $("h1").text(`Pick your favourite (${pokemonList.length} left)`);
         $(".subContainer").css("min-width", "37vw");
         $(".subContainer").css("min-height", "37vw");
         $(".desktop").css("display", "block");
@@ -89,15 +70,13 @@ const Load = () => {
         }
     }
     else{
-        AjaxPk(0, 0);
-        $("h1").text(`Your favourite ${type} pokemon is:`);
-        $(".subContainer:eq(1)").hide();
-        $(".mainContainer").css("width", "100%");
+        window.location.href = `/result.html?${pokemonList[0]}=${title}`
     };
 };
 
 const Vote = (pokemonNum) => {
     pokemonList.splice(pokemonNum, 1)
+    $("h1").text(`Pick your favourite (${pokemonList.length} left)`);
     Load()
 }
 
@@ -109,4 +88,13 @@ const byGen = () => {
 const byType = () => {
     $(".typeContainer").css("display", "inline")
     $(".genContainer").css("display", "none")
+}
+
+const Result = () => {
+    var bestPokemon = new URLSearchParams(window.location.search).toString().split('=')
+    pokemonList.push(bestPokemon[0])
+    AjaxPk(0, 0);
+    setTimeout(() => {
+        $("h1").text(`The best ${bestPokemon[1]} pokemon is:`);
+    }, 0);
 }

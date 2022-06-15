@@ -14,39 +14,38 @@
     <h1>Pick by gen or by type?</h1>
     <div class="mainContainer genContainer">
         <h3 class="mobile">By Gen</h3>
-        <button onclick="CreateList(0, 150, '')">Gen I</button>
-        <button onclick="CreateList(151, 249, '')">Gen II</button>
-        <button onclick="CreateList(252, 385, '')">Gen III</button>
-        <button onclick="CreateList(386, 482, '')">Gen IV</button>
-        <button onclick="CreateList(493, 648, '')">Gen V</button>
-        <button onclick="CreateList(647, 720, '')">Gen VI</button>
-        <button onclick="CreateList(721, 808, '')">Gen VII</button>
-        <button onclick="CreateList(809, 897, '')">Gen VIII</button>
+        <button onclick="CreateList('generation', 'generation-i')">Gen I</button>
+        <button onclick="CreateList('generation', 'generation-ii')">Gen II</button>
+        <button onclick="CreateList('generation', 'generation-iii')">Gen III</button>
+        <button onclick="CreateList('generation', 'generation-iv')">Gen IV</button>
+        <button onclick="CreateList('generation', 'generation-v')">Gen V</button>
+        <button onclick="CreateList('generation', 'generation-vi')">Gen VI</button>
+        <button onclick="CreateList('generation', 'generation-vii')">Gen VII</button>
+        <button onclick="CreateList('generation', 'generation-viii')">Gen VIII</button>
     </div>
     <div class="mainContainer typeContainer">
         <h3 class="mobile">By Type</h3>
-        <button onclick="CreateList(0, 0, 'normal')">Normal</button>
-        <button onclick="CreateList(0, 0, 'fighting')">Fighting</button>
-        <button onclick="CreateList(0, 0, 'flying')">Flying</button>
-        <button onclick="CreateList(0, 0, 'poison')">Poison</button>
-        <button onclick="CreateList(0, 0, 'ground')">Ground</button>
-        <button onclick="CreateList(0, 0, 'rock')">Rock</button>
-        <button onclick="CreateList(0, 0, 'bug')">Bug</button>
-        <button onclick="CreateList(0, 0, 'ghost')">Ghost</button>
-        <button onclick="CreateList(0, 0, 'steel')">Steel</button>
-        <button onclick="CreateList(0, 0, 'fire')">Fire</button>
-        <button onclick="CreateList(0, 0, 'water')">Water</button>
-        <button onclick="CreateList(0, 0, 'gras')">Grass</button>
+        <button onclick="CreateList('type', 'normal')">Normal</button>
+        <button onclick="CreateList('type', 'fighting')">Fighting</button>
+        <button onclick="CreateList('type', 'flying')">Flying</button>
+        <button onclick="CreateList('type', 'poison')">Poison</button>
+        <button onclick="CreateList('type', 'ground')">Ground</button>
+        <button onclick="CreateList('type', 'rock')">Rock</button>
+        <button onclick="CreateList('type', 'bug')">Bug</button>
+        <button onclick="CreateList('type', 'ghost')">Ghost</button>
+        <button onclick="CreateList('type', 'steel')">Steel</button>
+        <button onclick="CreateList('type', 'fire')">Fire</button>
+        <button onclick="CreateList('type', 'water')">Water</button>
+        <button onclick="CreateList('type', 'grass')">Grass</button>
     </div>
     <div class="mainContainer typeContainer">
-        <button onclick="CreateList(0, 0, 'electric')">Electric</button>
-        <button onclick="CreateList(0, 0, 'psychic')">Psychic</button>
-        <button onclick="CreateList(0, 0, 'ice')">Ice</button>
-        <button onclick="CreateList(0, 0, 'dragon')">Dragon</button>
-        <button onclick="CreateList(0, 0, 'dark')">Dark</button>
-        <button onclick="CreateList(0, 0, 'fairy')">Fairy</button>
+        <button onclick="CreateList('type', 'electric')">Electric</button>
+        <button onclick="CreateList('type', 'psychic')">Psychic</button>
+        <button onclick="CreateList('type', 'ice')">Ice</button>
+        <button onclick="CreateList('type', 'dragon')">Dragon</button>
+        <button onclick="CreateList('type', 'dark')">Dark</button>
+        <button onclick="CreateList('type', 'fairy')">Fairy</button>
 </div>
-    
     <div class="mainContainer">
         <div class="subContainer desktop">
             <h2>By Gen</h2>
@@ -57,5 +56,6 @@
             <a onclick="byType()"><img src="./whosthat.png" alt=""></a>
         </div>
     </div>
+</div>
 </body>
 </html>
