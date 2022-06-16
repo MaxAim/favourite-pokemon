@@ -70,7 +70,7 @@ const Load = () => {
         }
     }
     else{
-        window.location.href = `/result.html?${pokemonList[0]}=${title}`
+        window.location.href = `/favourite-pokemon/result.html?${pokemonList[0]}=${title}`
     };
 };
 
