@@ -70,7 +70,7 @@ const Load = () => {
         }
     }
     else{
-        window.location.href = `/favourite-pokemon/result.html?${pokemonList[0]}=${title}`
+        window.location.href = `/result.html?${pokemonList[0]}=${title}`
     };
 };
 
@@ -91,8 +91,9 @@ const byType = () => {
 }
 
 const Result = () => {
-    var bestPokemon = new URLSearchParams(window.location.search).toString().split('=')
-    pokemonList.push(bestPokemon[0])
+    var bestPokemon = (window.location.search).toString().split('&')[0].split('=')
+    pokemonList.push(bestPokemon[0].slice(1))
+    $('#facebook').attr('link', 'https://maxaim.github.io/favourite-pokemon/result.html?' + (window.location.search).toString())
     AjaxPk(0, 0);
     setTimeout(() => {
         $("h1").text(`The best ${bestPokemon[1]} pokemon is:`);
