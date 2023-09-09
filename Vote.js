@@ -3,13 +3,13 @@ var tempList = []
 var title = ''
 
 const CreateList = (kind, val) => {
-    title = val
+    title = kind == "type" ? kind : `${kind}${val}`;
     $("a:eq(1)").attr("onclick", "Vote(pokemon1)")
     $("a:eq(0)").attr("onclick", "Vote(pokemon2)")
     $("h3").hide();
         $.ajax({
             type: "get",
-            url: `https://pokeapi.co/api/v2/${kind}/${val}`,
+            url: `https://pokeapi.co/api/v2/${kind}/${val}/`,
             data: "data",
             dataType: "JSON",
             success: function (response) {
@@ -17,7 +17,7 @@ const CreateList = (kind, val) => {
                 for (const key in object) {
                     if (Object.hasOwnProperty.call(object, key)) {
                         const element = object[key];
-                        pokemonList.push(element.name || element.pokemon.name)
+                        pokemonList.push(element.name || element.pokemon.name);
                     }
                 }
             }
@@ -33,25 +33,23 @@ const CreateList = (kind, val) => {
 }
 
 const AjaxPk = (pk, pkm) => {
+    $(`h2:eq(${pkm})`).text("Loading...");
+    $(`img:eq(${pkm})`).attr("src", "")
     $.ajax({
         type: "get",
         url: `https://pokeapi.co/api/v2/pokemon/${pokemonList[pk]}`,
         data: "data",
         dataType: "JSON",
         success: function (response) {
-            $(`h2:eq(${pkm})`).hide();
-            $(`img:eq(${pkm})`).hide()
-            $(`h2:eq(${pkm})`).text(response.name);
+            var pokename = response.name.charAt(0).toUpperCase() + response.name.slice(1)
+            $(`h2:eq(${pkm})`).text(pokename);
             if(response.sprites.other["official-artwork"].front_default !== null){
                 $(`img:eq(${pkm})`).attr("src", `${response.sprites.other["official-artwork"].front_default}`);
             }
             else{
                 Vote(pk);
             }
-            $(`h2:eq(${pkm})`).show();
-            setTimeout(() => {
-                $(`img:eq(${pkm})`).fadeIn(500);
-            }, 600);
+            $(`img:eq(${pkm})`).fadeIn(500);
         }
     });
 }
@@ -93,9 +91,11 @@ const byType = () => {
 const Result = () => {
     var bestPokemon = (window.location.search).toString().split('&')[0].split('=')
     pokemonList.push(bestPokemon[0].slice(1))
-    $('#facebook').attr('link', 'https://maxaim.github.io/favourite-pokemon/result.html?' + (window.location.search).toString())
+    $('#facebook').attr('link', 'https://maxaim.github.io/favourite-pokemon/result.html?' + window.location.search)
     AjaxPk(0, 0);
+    
     setTimeout(() => {
+        if(bestPokemon[1].includes("generation")) bestPokemon[1] = bestPokemon[1].replace("on", "on ")
         $("h1").text(`The best ${bestPokemon[1]} pokemon is:`);
     }, 0);
 }

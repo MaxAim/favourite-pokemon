@@ -15,6 +15,9 @@ body{
     border-radius: 1vw;
     width: 30vw;
     height: 30vw;
+    background-image: url(loading.gif);
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 h1, h2, h3{
@@ -33,6 +36,7 @@ h2, h3{
 img{
     width: 30vw;
     height: auto;
+    background-color: black;
 }
 
 button{
@@ -84,8 +88,8 @@ a{
         display: none;
     }
     .subContainer{
-        width: 80vw;
-        height: 80vw;
+        width: 75vw;
+        height: 75vw;
         margin-top: 5vw;
     }
     img{
